@@ -29,15 +29,27 @@ def metadata_from_text(text: str, fallback: dict) -> dict:
 
 def _download_s3_documents(bucket: str, prefix: str, target: Path):
     import boto3
-    s3 = boto3.client("s3", region_name=get_settings().aws_region)
+
+    s3 = boto3.client(
+        "s3",
+        region_name=get_settings().aws_region
+    )
+
+    target.mkdir(parents=True, exist_ok=True)
     paginator = s3.get_paginator("list_objects_v2")
+
+    downloaded = 0
+
     for page in paginator.paginate(Bucket=bucket, Prefix=prefix):
         for obj in page.get("Contents", []):
             key = obj["Key"]
-            if key.lower().endswith(".pdf"):
+
+            if key.lower().endswith((".pdf", ".json")):
                 dest = target / Path(key).name
                 s3.download_file(bucket, key, str(dest))
+                downloaded += 1
 
+    print(f"Downloaded {downloaded} files from S3")
 def run_ingestion():
     s = get_settings()
     with tempfile.TemporaryDirectory() as tmp:
