@@ -1,4 +1,5 @@
-﻿name: Build and Push Supplier Contract Intelligence
+﻿
+name: Build and Push Supplier Contract Intelligence
 
 on:
   push:
@@ -24,6 +25,12 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
+      - name: Verify GitHub repository identity
+        run: |
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Branch reference: $GITHUB_REF"
+          echo "Event: $GITHUB_EVENT_NAME"
+
       - name: Configure AWS credentials using OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -43,3 +50,4 @@ jobs:
           context: .
           push: true
           tags: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ github.sha }}
+
