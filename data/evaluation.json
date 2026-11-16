@@ -1,0 +1,213 @@
+[
+  {
+    "question": "What is the notice period to terminate the CleanCo facilities contract?",
+    "answerable": true,
+    "expected_supplier": "CleanCo",
+    "expected_clause": "TERMINATION",
+    "expected_value": "30 days"
+  },
+  {
+    "question": "What is the notice period to terminate the TechPro it contract?",
+    "answerable": true,
+    "expected_supplier": "TechPro",
+    "expected_clause": "TERMINATION",
+    "expected_value": "60 days"
+  },
+  {
+    "question": "What is the notice period to terminate the FastMove logistics contract?",
+    "answerable": true,
+    "expected_supplier": "FastMove",
+    "expected_clause": "TERMINATION",
+    "expected_value": "90 days"
+  },
+  {
+    "question": "What is the notice period to terminate the BrightClean facilities contract?",
+    "answerable": true,
+    "expected_supplier": "BrightClean",
+    "expected_clause": "TERMINATION",
+    "expected_value": "120 days"
+  },
+  {
+    "question": "What is the notice period to terminate the SecureIT it contract?",
+    "answerable": true,
+    "expected_supplier": "SecureIT",
+    "expected_clause": "TERMINATION",
+    "expected_value": "30 days"
+  },
+  {
+    "question": "What is the notice period to terminate the NorthStarLogistics logistics contract?",
+    "answerable": true,
+    "expected_supplier": "NorthStarLogistics",
+    "expected_clause": "TERMINATION",
+    "expected_value": "60 days"
+  },
+  {
+    "question": "What is the notice period to terminate the CloudBridge it contract?",
+    "answerable": true,
+    "expected_supplier": "CloudBridge",
+    "expected_clause": "TERMINATION",
+    "expected_value": "90 days"
+  },
+  {
+    "question": "What is the notice period to terminate the GreenFacilities facilities contract?",
+    "answerable": true,
+    "expected_supplier": "GreenFacilities",
+    "expected_clause": "TERMINATION",
+    "expected_value": "120 days"
+  },
+  {
+    "question": "What is the notice period to terminate the DataWorks it contract?",
+    "answerable": true,
+    "expected_supplier": "DataWorks",
+    "expected_clause": "TERMINATION",
+    "expected_value": "30 days"
+  },
+  {
+    "question": "What is the notice period to terminate the SwiftFreight logistics contract?",
+    "answerable": true,
+    "expected_supplier": "SwiftFreight",
+    "expected_clause": "TERMINATION",
+    "expected_value": "60 days"
+  },
+  {
+    "question": "What is the notice period to terminate the PrimeMaintenance facilities contract?",
+    "answerable": true,
+    "expected_supplier": "PrimeMaintenance",
+    "expected_clause": "TERMINATION",
+    "expected_value": "90 days"
+  },
+  {
+    "question": "What is the notice period to terminate the NetSupport it contract?",
+    "answerable": true,
+    "expected_supplier": "NetSupport",
+    "expected_clause": "TERMINATION",
+    "expected_value": "120 days"
+  },
+  {
+    "question": "What is the notice period to terminate the CargoPlus logistics contract?",
+    "answerable": true,
+    "expected_supplier": "CargoPlus",
+    "expected_clause": "TERMINATION",
+    "expected_value": "30 days"
+  },
+  {
+    "question": "What is the notice period to terminate the OfficeCare facilities contract?",
+    "answerable": true,
+    "expected_supplier": "OfficeCare",
+    "expected_clause": "TERMINATION",
+    "expected_value": "60 days"
+  },
+  {
+    "question": "What is the notice period to terminate the BlueSkyIT it contract?",
+    "answerable": true,
+    "expected_supplier": "BlueSkyIT",
+    "expected_clause": "TERMINATION",
+    "expected_value": "90 days"
+  },
+  {
+    "question": "What is the notice period to terminate the RoadRunner logistics contract?",
+    "answerable": true,
+    "expected_supplier": "RoadRunner",
+    "expected_clause": "TERMINATION",
+    "expected_value": "120 days"
+  },
+  {
+    "question": "What is the notice period to terminate the MetroFacilities facilities contract?",
+    "answerable": true,
+    "expected_supplier": "MetroFacilities",
+    "expected_clause": "TERMINATION",
+    "expected_value": "30 days"
+  },
+  {
+    "question": "What is the notice period to terminate the CoreSystems it contract?",
+    "answerable": true,
+    "expected_supplier": "CoreSystems",
+    "expected_clause": "TERMINATION",
+    "expected_value": "60 days"
+  },
+  {
+    "question": "What is the notice period to terminate the RapidDelivery logistics contract?",
+    "answerable": true,
+    "expected_supplier": "RapidDelivery",
+    "expected_clause": "TERMINATION",
+    "expected_value": "90 days"
+  },
+  {
+    "question": "What is the notice period to terminate the UrbanClean facilities contract?",
+    "answerable": true,
+    "expected_supplier": "UrbanClean",
+    "expected_clause": "TERMINATION",
+    "expected_value": "120 days"
+  },
+  {
+    "question": "Which IT contracts auto-renew before 31 March 2027?",
+    "answerable": true,
+    "expected_suppliers": [
+      "CloudBridge",
+      "DataWorks",
+      "BlueSkyIT",
+      "VertexTech",
+      "BrightByte"
+    ]
+  },
+  {
+    "question": "Which facilities contracts expire in Q1 2027?",
+    "answerable": true,
+    "expected_suppliers": [
+      "CleanCo",
+      "BrightClean",
+      "GreenFacilities",
+      "MetroFacilities",
+      "EvergreenFM",
+      "UnityServices"
+    ]
+  },
+  {
+    "question": "What is the bank account number for CleanCo?",
+    "answerable": false,
+    "expected_value": ""
+  },
+  {
+    "question": "Who is the personal mobile number of the TechPro contract manager?",
+    "answerable": false,
+    "expected_value": ""
+  },
+  {
+    "question": "What is the passport number of the FastMove director?",
+    "answerable": false,
+    "expected_value": ""
+  },
+  {
+    "question": "What was the supplier's internal password?",
+    "answerable": false,
+    "expected_value": ""
+  },
+  {
+    "question": "What is the employee home address listed in the contract?",
+    "answerable": false,
+    "expected_value": ""
+  },
+  {
+    "question": "Which logistics contracts auto-renew in Q1 2027?",
+    "answerable": true,
+    "expected_suppliers": [
+      "CargoPlus",
+      "FleetLine",
+      "SilverRoute"
+    ]
+  },
+  {
+    "question": "What is the notice period to terminate the OrionIT IT contract?",
+    "answerable": true,
+    "expected_supplier": "OrionIT",
+    "expected_clause": "TERMINATION",
+    "expected_value": "120 days"
+  },
+  {
+    "question": "What is the notice period to terminate the UnityServices facilities contract?",
+    "answerable": true,
+    "expected_supplier": "UnityServices",
+    "expected_clause": "TERMINATION",
+    "expected_value": "60 days"
+  }
+]

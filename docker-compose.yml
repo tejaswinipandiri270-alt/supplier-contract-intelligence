@@ -1,0 +1,56 @@
+services:
+  opensearch:
+    image: opensearchproject/opensearch:2.17.1
+    container_name: supplier-opensearch
+    environment:
+      - discovery.type=single-node
+      - DISABLE_SECURITY_PLUGIN=true
+      - OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+      - "9600:9600"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - opensearch-data:/usr/share/opensearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9200/_cluster/health >/dev/null || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 20
+
+  api:
+    build: .
+    container_name: supplier-contract-api
+    env_file:
+      - .env
+    environment:
+      OPENSEARCH_HOST: opensearch
+      OPENSEARCH_PORT: 9200
+      OPENSEARCH_USE_SSL: "false"
+      OPENSEARCH_VERIFY_CERTS: "false"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      opensearch:
+        condition: service_healthy
+
+  ui:
+    build: .
+    container_name: supplier-contract-ui
+    command: ["streamlit", "run", "app/ui.py", "--server.address=0.0.0.0", "--server.port=8501"]
+    env_file:
+      - .env
+    environment:
+      API_URL: http://api:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+
+volumes:
+  opensearch-data:
