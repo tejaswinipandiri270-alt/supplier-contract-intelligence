@@ -50,13 +50,14 @@ def query(request: QueryRequest):
             scores={"retrieval_ms": round(retrieval_ms, 2), "max_score": round(max_score, 4)},
             filters_applied=filters, retrieved_chunks=len(hits)
         )
+    
     except HTTPException:
-     raise
+        raise
 
     except Exception:
-     import logging
-    logging.exception("Supplier contract query failed")
-    raise HTTPException(
-        status_code=500,
-        detail="Query failed. Check the API logs for details."
-    )
+        import logging
+        logging.exception("Supplier contract query failed")
+        raise HTTPException(
+            status_code=500,
+            detail="Query failed. Check the API logs for details."
+        )
