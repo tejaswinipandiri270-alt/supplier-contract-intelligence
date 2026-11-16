@@ -1,4 +1,5 @@
 ﻿
+
 name: Build and Push Supplier Contract Intelligence
 
 on:
@@ -30,7 +31,8 @@ jobs:
           echo "Repository: $GITHUB_REPOSITORY"
           echo "Branch reference: $GITHUB_REF"
           echo "Event: $GITHUB_EVENT_NAME"
-             - name: Inspect GitHub OIDC token claims
+
+      - name: Inspect GitHub OIDC token claims
         uses: actions/github-script@v7
         with:
           script: |
@@ -46,6 +48,7 @@ jobs:
               repository: claims.repository,
               ref: claims.ref
             }, null, 2));
+
       - name: Configure AWS credentials using OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -65,4 +68,3 @@ jobs:
           context: .
           push: true
           tags: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ github.sha }}
-
