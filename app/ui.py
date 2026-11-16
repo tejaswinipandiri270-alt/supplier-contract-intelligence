@@ -21,8 +21,6 @@ api_url = os.getenv(
     "http://localhost:8000"
 ).rstrip("/")
 
-st.caption(f"Backend API: {api_url}")
-
 question = st.text_area(
     "Enter your contract question",
     value="What is the notice period to terminate the CleanCo facilities contract?"
@@ -32,6 +30,7 @@ if st.button("Ask Assistant", type="primary"):
 
     if not question.strip():
         st.warning("Please enter a question.")
+
     else:
         with st.spinner("Searching supplier contracts..."):
 
@@ -45,36 +44,33 @@ if st.button("Ask Assistant", type="primary"):
                 response.raise_for_status()
                 data = response.json()
 
+                # Display answer
                 st.subheader("Answer")
-                st.markdown(data.get("answer", "No answer returned."))
+                st.markdown(
+                    data.get("answer", "No answer returned.")
+                )
 
-                st.subheader("Retrieval Details")
+                # Display source citations only
+                citations = data.get("citations", [])
 
-                st.json({
-                    "filters_applied": data.get("filters_applied"),
-                    "scores": data.get("scores"),
-                    "retrieved_chunks": data.get("retrieved_chunks")
-                })
+                if citations:
+                    st.subheader("Source Citations")
 
-                st.subheader("Source Citations")
+                    for citation in citations:
 
-                for citation in data.get("citations", []):
+                        with st.expander(
+                            f"{citation.get('supplier', 'Unknown')} | "
+                            f"{citation.get('source', 'Unknown')} | "
+                            f"{citation.get('clause', 'Unknown')}"
+                        ):
+                            st.write(
+                                citation.get("excerpt", "")
+                            )
 
-                    with st.expander(
-                        f"{citation.get('supplier', 'Unknown')} | "
-                        f"{citation.get('source', 'Unknown')} | "
-                        f"{citation.get('clause', 'Unknown')}"
-                    ):
-                        st.write(citation.get("excerpt", ""))
-
-                        st.caption(
-                            f"Chunk: {citation.get('chunk_id')} | "
-                            f"Score: {citation.get('score')}"
-                        )
+                else:
+                    st.info("No source citations returned.")
 
             except requests.exceptions.RequestException as e:
                 st.error(f"API connection failed: {e}")
 
-st.info(
-    f"FastAPI documentation: {api_url}/docs"
-)
+st.caption("Powered by FastAPI, Amazon OpenSearch and Azure AI Foundry.")
